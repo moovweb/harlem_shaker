@@ -7,18 +7,25 @@
 
   var PATH_TO_SONG = "//dl.dropbox.com/u/1749642/harlem-shake.mp3";
 
-  var CSS_CLASS = "mw-harlem_shake_me"
+  var CSS_BASE_CLASS = "mw-harlem_shake_me"
+  var CSS_FIRST_CLASS = "im_first";
+  var CSS_OTHER_CLASSES = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
+
   var PATH_TO_CSS = "//dl.dropbox.com/u/17230668/harlem-shake-style_omar_dropbox.css";
-  var CSS_FILE_CLASS = "mw-added-css"
+  var CSS_FILE_CLASS = "mw_added_css"
 
   function addCSS() {
     var css = document.createElement("link");
     css.setAttribute("type", "text/css");
     css.setAttribute("rel", "stylesheet");
     css.setAttribute("href", PATH_TO_CSS);
-    css.setAttribute("class", CSS_FILE_CLASS);
+    css.setAttribute("id", CSS_FILE_CLASS);
 
     document.body.appendChild(css);
+  }
+
+  function removeCSS() {
+    document.body.removeChild(document.getElementById(CSS_FILE_CLASS));
   }
 
   function size(node) {
@@ -44,43 +51,40 @@
     audioTag.addEventListener("play", function() {
       // song started, start shaking first item
       setTimeout(function() {
-        shake(firstNode);
-      }, 3000);
+        shakeFirst(firstNode);
+      }, 2500);
 
-      // setTimeout 15s
+      // setTimeout
       setTimeout(function() {
         stopShakeAll();
         for (var i=0; i<allShakeableNodes.length; i++) {
-          shake(allShakeableNodes[i]);
+          shakeOther(allShakeableNodes[i]);
         }
       }, 16500);
     }, true);
     
     audioTag.addEventListener("ended", function() {
       stopShakeAll();
-      document.body.removeChild(document.getElementsByClassName(CSS_FILE_CLASS)[0]);
+      removeCSS();
     }, true);
 
-    audioTag.innerHTML = "<p>If you are reading this, it is because your browser does not support the audio element.</p>"
+    audioTag.innerHTML = "<p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p>"
 
     document.body.appendChild(audioTag);
     audioTag.play();
   }
 
-  function shake(node) {
-    node.className += " "+CSS_CLASS;
+  function shakeFirst(node) {
+    node.className += " "+CSS_BASE_CLASS+" "+CSS_FIRST_CLASS;
   }
-
-  function stopShake(node) {
-    node.className = node.className.replace(CSS_CLASS,"");
+  function shakeOther(node) {
+    node.className += " "+CSS_BASE_CLASS+" "+CSS_OTHER_CLASSES[Math.floor(Math.random()*CSS_OTHER_CLASSES.length)];
   }
 
   function stopShakeAll() {
-    console.log("STOP ALL");
-    
-    var shakingNodes = document.getElementsByClassName(CSS_CLASS);
+    var shakingNodes = document.getElementsByClassName(CSS_BASE_CLASS);
     for (var i=0; i<shakingNodes.length; i++) {
-      shakingNodes[i].className = shakingNodes[i].className.replace(CSS_CLASS, "");
+      shakingNodes[i].className = shakingNodes[i].className.replace(CSS_BASE_CLASS, "");
     }
   }
 
@@ -96,7 +100,7 @@
   }
 
   if (thisNode === null) {
-    console.warn("Could not find a node of size > 50x50. Please try a different page.");
+    console.warn("Could not find a node of the right size. Please try a different page.");
     return;
   }
 
