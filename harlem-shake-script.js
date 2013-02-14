@@ -5,7 +5,7 @@
   var MAX_HEIGHT = 350;
   var MAX_WIDTH = 350;
 
-  var PATH_TO_SONG = "//dl.dropbox.com/u/1749642/harlem-shake.mp3";
+  var PATH_TO_SONG = "https://s3.amazonaws.com/moovweb-marketing/playground/harlem-shake.mp3";
 
   var CSS_BASE_CLASS = "mw-harlem_shake_me"
   var CSS_FIRST_CLASS = "im_first";
