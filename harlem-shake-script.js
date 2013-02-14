@@ -85,7 +85,7 @@
   function isVisible(node) {
     var y = posY(node);
 
-    return (y > st && y < (vpH + st));
+    return (y >= st && y <= (vpH + st));
   }
 
   function playSong() {
@@ -97,7 +97,7 @@
       // song started, start shaking first item
       setTimeout(function() {
         shakeFirst(firstNode);
-      }, 2500);
+      }, 3000);
 
       // setTimeout
       setTimeout(function() {
@@ -106,7 +106,7 @@
         for (var i=0; i<allShakeableNodes.length; i++) {
           shakeOther(allShakeableNodes[i]);
         }
-      }, 16500);
+      }, 16700);
     }, true);
     
     audioTag.addEventListener("ended", function() {
