@@ -5,7 +5,7 @@
   var MAX_HEIGHT = 350;
   var MAX_WIDTH = 350;
 
-  var PATH_TO_SONG = "https://s3.amazonaws.com/moovweb-marketing/playground/harlem-shake.mp3";
+  var PATH_TO_SONG = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake.mp3";
 
   var CSS_BASE_CLASS = "mw-harlem_shake_me"
   var CSS_FIRST_CLASS = "im_first";
@@ -13,7 +13,7 @@
 
   var CSS_STROBE_CLASS = "mw-strobe_light";
 
-  var PATH_TO_CSS = "https://s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";
+  var PATH_TO_CSS = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";
   var CSS_FILE_CLASS = "mw_added_css"
 
   function addCSS() {
