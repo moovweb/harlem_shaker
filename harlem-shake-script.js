@@ -13,7 +13,7 @@
 
   var CSS_STROBE_CLASS = "mw-strobe_light";
 
-  var PATH_TO_CSS = "//dl.dropbox.com/u/17230668/harlem-shake-style_omar_dropbox.css";
+  var PATH_TO_CSS = "https://s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";
   var CSS_FILE_CLASS = "mw_added_css"
 
   function addCSS() {
