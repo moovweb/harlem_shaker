@@ -11,6 +11,8 @@
   var CSS_FIRST_CLASS = "im_first";
   var CSS_OTHER_CLASSES = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
 
+  var CSS_STROBE_CLASS = "mw-strobe_light";
+
   var PATH_TO_CSS = "//dl.dropbox.com/u/17230668/harlem-shake-style_omar_dropbox.css";
   var CSS_FILE_CLASS = "mw_added_css"
 
@@ -30,7 +32,7 @@
 
   function flashScreen() {
     var flash = document.createElement("div");
-    flash.setAttribute("class", "mw-strobe_light");
+    flash.setAttribute("class", CSS_STROBE_CLASS);
     document.body.appendChild(flash);
 
     setTimeout(function() {
@@ -106,7 +108,7 @@
         for (var i=0; i<allShakeableNodes.length; i++) {
           shakeOther(allShakeableNodes[i]);
         }
-      }, 16700);
+      }, 16500);
     }, true);
     
     audioTag.addEventListener("ended", function() {
