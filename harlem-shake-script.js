@@ -8,7 +8,7 @@
   var PATH_TO_SONG = "//dl.dropbox.com/u/1749642/harlem-shake.mp3";
 
   var CSS_CLASS = "mw-harlem_shake_me"
-  var PATH_TO_CSS = "//raw.github.com/omar-jalalzada/assets_test/master/harlem-shake-style.css";
+  var PATH_TO_CSS = "//dl.dropbox.com/u/17230668/harlem-shake-style_omar_dropbox.css";
   var CSS_FILE_CLASS = "mw-added-css"
 
   function addCSS() {
