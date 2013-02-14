@@ -1,47 +1,19 @@
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@-moz-keyframes spin { /* Firefox */
-  from { -moz-transform: rotate(0deg); }
-  to { -moz-transform: rotate(360deg); }
-}
-
-@-webkit-keyframes spin { /* Safari and Chrome */
-  from { -webkit-transform: rotate(0deg); }
-  to { -webkit-transform: rotate(360deg); }
-}
-
-@-o-keyframes spin { /* Opera */
-  from { -o-transform: rotate(0deg); }
-  to { -o-transform: rotate(360deg); }
-}
-
-
-
-.mw-harlem_shake_me {
-  /*background: #333;*/
-}
-/*.im_first {
-  border: 1px solid red;
-}
-.im_drunk, .im_baked, .im_trippin, .im_blown {
+/*.im_drunk, .im_baked, .im_trippin, .im_blown {
   border: 1px solid brown;
-}
-
-.im_baked {
-  background-color: blue;
-}
-.im_trippin {
-  background-color: purple;
-}
-.im_blown {
-  background-color: yellow;
-
 }*/
+
+.mw-strobe_light {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100000;
+  background-color: rgba(250,250,250,0.8);
+  display: block;
+}
+
 .mw-harlem_shake_me {
-  
   transition: all 0.8s ease-in-out;
   -moz-transition: all 0.8s ease-in-out;
   -webkit-transition: all 0.8s ease-in-out;
@@ -59,16 +31,9 @@
 /*
 Animate.css - http://daneden.me/animate
 Licensed under the ☺ license (http://licence.visualidiot.com/)
-
-Copyright (c) 2012 Dan Eden
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+But we have it modified for our use.
 */
-body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
+body {
   -webkit-backface-visibility: hidden;
 }
 .animated, .mw-harlem_shake_me {
@@ -81,6 +46,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
        -o-animation-fill-mode: both;
           animation-fill-mode: both;
 }
+
 
 .animated.hinge {
   -webkit-animation-duration: 2s;
@@ -109,7 +75,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
   25%, 75% {opacity: 0;}
 }
 
-.flash {
+.flash, .mw-strobe_light {
   -webkit-animation-name: flash;
   -moz-animation-name: flash;
   -o-animation-name: flash;
@@ -259,41 +225,41 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 
 @-webkit-keyframes wobble {
   0% { -webkit-transform: translateX(0%); }
-  15% { -webkit-transform: translateX(-25%) rotate(-5deg); }
-  30% { -webkit-transform: translateX(20%) rotate(3deg); }
-  45% { -webkit-transform: translateX(-15%) rotate(-3deg); }
-  60% { -webkit-transform: translateX(10%) rotate(2deg); }
-  75% { -webkit-transform: translateX(-5%) rotate(-1deg); }
+  15% { -webkit-transform: translateX(-15%) rotate(-4deg); }
+  30% { -webkit-transform: translateX(12%) rotate(3deg); }
+  45% { -webkit-transform: translateX(-9%) rotate(-2deg); }
+  60% { -webkit-transform: translateX(6%) rotate(2deg); }
+  75% { -webkit-transform: translateX(-3%) rotate(-1deg); }
   100% { -webkit-transform: translateX(0%); }
 }
 
 @-moz-keyframes wobble {
   0% { -moz-transform: translateX(0%); }
-  15% { -moz-transform: translateX(-25%) rotate(-5deg); }
-  30% { -moz-transform: translateX(20%) rotate(3deg); }
-  45% { -moz-transform: translateX(-15%) rotate(-3deg); }
-  60% { -moz-transform: translateX(10%) rotate(2deg); }
-  75% { -moz-transform: translateX(-5%) rotate(-1deg); }
+  15% { -moz-transform: translateX(-15%) rotate(-5deg); }
+  30% { -moz-transform: translateX(12%) rotate(3deg); }
+  45% { -moz-transform: translateX(-9%) rotate(-3deg); }
+  60% { -moz-transform: translateX(6%) rotate(2deg); }
+  75% { -moz-transform: translateX(-3%) rotate(-1deg); }
   100% { -moz-transform: translateX(0%); }
 }
 
 @-o-keyframes wobble {
   0% { -o-transform: translateX(0%); }
-  15% { -o-transform: translateX(-25%) rotate(-5deg); }
-  30% { -o-transform: translateX(20%) rotate(3deg); }
-  45% { -o-transform: translateX(-15%) rotate(-3deg); }
-  60% { -o-transform: translateX(10%) rotate(2deg); }
-  75% { -o-transform: translateX(-5%) rotate(-1deg); }
+  15% { -o-transform: translateX(-15%) rotate(-5deg); }
+  30% { -o-transform: translateX(12%) rotate(3deg); }
+  45% { -o-transform: translateX(-9%) rotate(-3deg); }
+  60% { -o-transform: translateX(6%) rotate(2deg); }
+  75% { -o-transform: translateX(-3%) rotate(-1deg); }
   100% { -o-transform: translateX(0%); }
 }
 
 @keyframes wobble {
-  0% { transform: translateX(0%); }
-  15% { transform: translateX(-25%) rotate(-5deg); }
-  30% { transform: translateX(20%) rotate(3deg); }
-  45% { transform: translateX(-15%) rotate(-3deg); }
-  60% { transform: translateX(10%) rotate(2deg); }
-  75% { transform: translateX(-5%) rotate(-1deg); }
+  0% { transform: translateX(0%); }`
+  15% { transform: translateX(-15%) rotate(-5deg); }
+  30% { transform: translateX(12%) rotate(3deg); }
+  45% { transform: translateX(-9%) rotate(-3deg); }
+  60% { transform: translateX(6%) rotate(2deg); }
+  75% { transform: translateX(-3%) rotate(-1deg); }
   100% { transform: translateX(0%); }
 }
 
