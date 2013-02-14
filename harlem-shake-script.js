@@ -99,11 +99,11 @@
     audioTag.src = PATH_TO_SONG;
     audioTag.loop = false;
 
-    audioTag.addEventListener("play", function() {
+    audioTag.addEventListener("canplay", function() {
       // song started, start shaking first item
       setTimeout(function() {
         shakeFirst(firstNode);
-      }, 3000);
+      }, 500);
 
       // setTimeout
       setTimeout(function() {
@@ -112,7 +112,7 @@
         for (var i=0; i<allShakeableNodes.length; i++) {
           shakeOther(allShakeableNodes[i]);
         }
-      }, 16500);
+      }, 15500);
     }, true);
     
     audioTag.addEventListener("ended", function() {
