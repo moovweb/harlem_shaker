@@ -14,20 +14,23 @@
   var CSS_STROBE_CLASS = "mw-strobe_light";
 
   var PATH_TO_CSS = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";
-  var CSS_FILE_CLASS = "mw_added_css"
+  var FILE_ADDED_CLASS = "mw_added_css"
 
   function addCSS() {
     var css = document.createElement("link");
     css.setAttribute("type", "text/css");
     css.setAttribute("rel", "stylesheet");
     css.setAttribute("href", PATH_TO_CSS);
-    css.setAttribute("id", CSS_FILE_CLASS);
+    css.setAttribute("class", FILE_ADDED_CLASS);
 
     document.body.appendChild(css);
   }
 
-  function removeCSS() {
-    document.body.removeChild(document.getElementById(CSS_FILE_CLASS));
+  function removeAddedFiles() {
+    var addedFiles = document.getElementsByClassName(FILE_ADDED_CLASS);
+    for (var i=0; i<addedFiles.length; i++) {
+      document.body.removeChild(addedFiles[i]);
+    }
   }
 
   function flashScreen() {
@@ -92,6 +95,7 @@
 
   function playSong() {
     var audioTag = document.createElement("audio");
+    audioTag.setAttribute("class", FILE_ADDED_CLASS);
     audioTag.src = PATH_TO_SONG;
     audioTag.loop = false;
 
@@ -113,7 +117,7 @@
     
     audioTag.addEventListener("ended", function() {
       stopShakeAll();
-      removeCSS();
+      removeAddedFiles();
     }, true);
 
     audioTag.innerHTML = "<p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p>"
@@ -131,8 +135,9 @@
 
   function stopShakeAll() {
     var shakingNodes = document.getElementsByClassName(CSS_BASE_CLASS);
-    for (var i=0; i<shakingNodes.length; i++) {
-      shakingNodes[i].className = shakingNodes[i].className.replace(CSS_BASE_CLASS, "");
+    var regex = new RegExp('\\b'+CSS_BASE_CLASS+'\\b');
+    for (var i=0; i<shakingNodes.length; ) {
+      shakingNodes[i].className =  shakingNodes[i].className.replace(regex, "");
     }
   }
 
