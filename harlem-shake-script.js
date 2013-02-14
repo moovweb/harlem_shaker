@@ -28,6 +28,16 @@
     document.body.removeChild(document.getElementById(CSS_FILE_CLASS));
   }
 
+  function flashScreen() {
+    var flash = document.createElement("div");
+    flash.setAttribute("class", "mw-strobe_light");
+    document.body.appendChild(flash);
+
+    setTimeout(function() {
+      document.body.removeChild(flash);
+    }, 100);
+  }
+
   function size(node) {
     return {
       height: node.offsetHeight,
@@ -41,6 +51,41 @@
             nodeFrame.height < MAX_HEIGHT &&
             nodeFrame.width > MIN_WIDTH &&
             nodeFrame.width < MAX_WIDTH);
+  }
+
+  function posY(elm) {
+    var test = elm;
+    var top = 0;
+    while (!!test) {
+      top += test.offsetTop;
+      test = test.offsetParent;
+    }
+    return top;
+  }
+
+  function viewPortHeight() {
+    var de = document.documentElement;
+    if (!!window.innerWidth) {
+      return window.innerHeight;
+    } else if (de && !isNaN(de.clientHeight)) {
+      return de.clientHeight;
+    }
+    return 0;
+  }
+
+  function scrollY() {
+    if (window.pageYOffset) {
+      return window.pageYOffset;
+    }
+    return Math.max(document.documentElement.scrollTop, document.body.scrollTop);
+  }
+
+  var vpH = viewPortHeight();
+  var st = scrollY();
+  function isVisible(node) {
+    var y = posY(node);
+
+    return (y > st && y < (vpH + st));
   }
 
   function playSong() {
@@ -57,6 +102,7 @@
       // setTimeout
       setTimeout(function() {
         stopShakeAll();
+        flashScreen();
         for (var i=0; i<allShakeableNodes.length; i++) {
           shakeOther(allShakeableNodes[i]);
         }
@@ -94,8 +140,10 @@
   for (var i=0; i<allNodes.length; i++) {
     var thisNode = allNodes[i];
     if (withinBounds(thisNode)) {
-      firstNode = thisNode;
-      break;
+      if(isVisible(thisNode)) {
+        firstNode = thisNode;
+        break;
+      }
     }
   }
 
