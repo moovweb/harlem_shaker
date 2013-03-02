@@ -102,8 +102,7 @@
 
     var harlem = false,
         shake = false,
-        slowmo = false,
-        stop = false;
+        slowmo = false;
     
     audioTag.addEventListener("timeupdate", function() {
       var time = audioTag.currentTime,
