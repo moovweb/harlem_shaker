@@ -112,14 +112,12 @@
 
       // song started, start shaking first item
       if(time >= 0.5 && !harlem) {
-        console.log("start!");
         harlem = true;
         shakeFirst(firstNode);
       }
 
       // everyone else joins the party
       if(time >= 15.5 && !shake) {
-        console.log("shake all!");
         shake = true;
         stopShakeAll();
         flashScreen();
@@ -131,7 +129,6 @@
       // slow motion at the end
       if(audioTag.currentTime >= 28.4 && !slowmo) {
         slowmo = true;
-        console.log("slow motion!");
         shakeSlowAll();
       }
     }, true);
