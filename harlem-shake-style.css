@@ -25,6 +25,20 @@
   -ms-animation: spin 1s infinite linear;
 }
 
+.mw-harlem_shake_slow {
+   transition: all 3.2s ease-in-out;
+  -moz-transition: all 3.2s ease-in-out;
+  -webkit-transition: all 3.2s ease-in-out;
+  -o-transition: all 3.2s ease-in-out;
+  -ms-transition: all 3.2s ease-in-out;
+
+  animation: spin 4s infinite linear;
+  -moz-animation: spin 4s infinite linear;
+  -webkit-animation: spin 4s infinite linear;
+  -o-animation: spin 4s infinite linear;
+  -ms-animation: spin 4s infinite linear;
+}
+
 /*
 Animate.css - http://daneden.me/animate
 Licensed under the ☺ license (http://licence.visualidiot.com/)
@@ -33,11 +47,23 @@ But we have it modified for our use.
 body {
   -webkit-backface-visibility: hidden;
 }
-.animated, .mw-harlem_shake_me {
+
+.mw-harlem_shake_me {
   -webkit-animation-duration: .4s;
      -moz-animation-duration: .4s;
        -o-animation-duration: .4s;
           animation-duration: .4s;
+  -webkit-animation-fill-mode: both;
+     -moz-animation-fill-mode: both;
+       -o-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+
+.mw-harlem_shake_slow {
+  -webkit-animation-duration: 1.6s;
+     -moz-animation-duration: 1.6s;
+       -o-animation-duration: 1.6s;
+          animation-duration: 1.6s;
   -webkit-animation-fill-mode: both;
      -moz-animation-fill-mode: both;
        -o-animation-fill-mode: both;
